@@ -1,5 +1,3 @@
-# mini-proj-tamagotchi
-
 # Tamagotchi Mini-Project
 
 ### Description
