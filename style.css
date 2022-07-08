@@ -1,3 +1,10 @@
+/*
+font-family: 'Comfortaa', cursive;
+font-family: 'Press Start 2P', monospace;
+font-family: 'VT323', monospace;
+*/
+
+
 body,
 html {
   height: 100%;
@@ -34,9 +41,11 @@ h1 {
   box-shadow: 0 0 20px black;
 }
 
+
 .fullEgg {
   scale: 0.25;
 }
+
 
 .mainBtn {
   display: flex;
