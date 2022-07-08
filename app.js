@@ -4,13 +4,21 @@ console.log("Tamagotch | Mini Project");
 class Pet {
   constructor(name, age, hunger, sleepiness, bordem) {
     this.name = name;
-    this.health = this.hunger = 10;
+    this.hunger = 10;
     this.sleepiness = 0;
     this.bordem = 0;
   }
 
   //PET CLASS METHODS
-  //get name () - returns name
+
+  //setName () - prompts user to name Pet
+  setName() {
+    this.name = prompt('Name your Dinogotchi')
+    const nameID = document.querySelector('.name')
+    nameID.innerText = `Dino-${this.name}`
+  }
+  
+  //getName () - returns name
   getName() {
     return this.name;
   }
