@@ -4,25 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tamagotch</title>
+    <title>Dinogotchi</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="bg">
-    <header>
-      <button class="btn button1">HUNGER</button>
-      <button class="btn button2">SLEEPINESS</button>
-      <button class="btn button3">BORDEM</button>
-      <button class="btn button4">LIGHTS OFF</button>
-      <button class="btn button4">AGE</button>
-    </header>
+    <h1>DINOGOTCHI</h1>
 
-    <div class="btn2">
-      <button class="test button1">HUNGER</button>
-      <button class="test button2">SLEEPINESS</button>
-      <button class="test button3">BORDEM</button>
-      <button class="test button4">TURN OFF LIGHTS</button>
+    <div class="square">
+      <img class="fullEgg" src="imgs/egg.png" alt="" />
     </div>
-    <div class="centerDisplay"></div>
+
+    <div class="mainBtn">
+      <button class="button fedBtn">FEED</button>
+      <button class="button sleepBtn">SLEEP</button>
+      <button class="button playBtn">PLAY</button>
+      <button class="button lightBtn">TURN OFF LIGHTS</button>
+    </div>
+
+    <footer>Age stuff could go here maybe?</footer>
 
     <script src="app.js"></script>
   </body>
