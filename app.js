@@ -15,3 +15,8 @@ class Pet {
     return this.name;
   }
 }
+
+//INSTANTIATING A NEW PET
+const dino = new Pet("Dino");
+dino.getName();
+//console.log(dino.getName());
