@@ -43,7 +43,8 @@ h1 {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-.button {
+
+button {
   margin-top: 25px;
   display: inline-block;
   background-color: white;
