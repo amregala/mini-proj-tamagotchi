@@ -26,7 +26,7 @@ h1 {
   text-align: center;
   font-family: "Comfortaa", sans-serif;
   font-weight: bold700;
-  font-size: 50px;
+  font-size: 45px;
   background-color: white;
   padding: 8px;
   margin-top: 0;
@@ -43,35 +43,48 @@ h1 {
   height: 250px;
   box-shadow: 0 0 20px black;
   z-index: 1;
-}
-
-.name {
   font-family: "VT323", monospace;
-  font-size: 18px;
   color: #626968;
-  position: relative;
   text-align: center;
-  margin-top: 5px;
-  z-index: 3;
 }
 
-.scores {
-  font-family: "VT323", monospace;
-  font-size: 14x;
-  color: #626968;
+.hola {
+  font-size: 14px;
+}
+.topStatusBar {
   display: flex;
-  margin-top: -80px;
+  margin-top: -75px;
+}
+.name,
+.age {
+  display: inline-block;
+  font-size: 22px;
+  text-align: center;
+  z-index: 3;
+  padding-left: 35px;
+  padding-right: 15px;
+}
+
+.scoreStatusBar {
+  font-size: 14px;
+  display: flex;
+  margin-top: -90px;
   text-align: center;
 }
 p {
+  display: inline-block;
   margin-left: 5px;
   padding: 15px;
 }
+
 .petIcon {
   z-index: 2;
-  margin-top: -80px;
+  margin-top: -75px;
 }
 
+.age {
+  /* margin-top: -75px;*/
+}
 /* The styling below is for all the buttons*/
 .container2 {
   display: flex;
@@ -79,7 +92,7 @@ p {
 .startBtn,
 .lightBtn {
   margin: auto;
-  margin-top: 50px;
+  margin-top: 25px;
   background-color: #8a5ae2;
   color: white;
   font-family: "Comfortaa", sans-serif;
@@ -110,13 +123,4 @@ button {
   outline: none;
   font-size: 12px;
   box-shadow: 0 0 20px black;
-}
-
-footer {
-  position: absolute;
-  bottom: -75px;
-  background-color: white;
-  text-align: center;
-  padding: 15px;
-  width: 100%;
 }
