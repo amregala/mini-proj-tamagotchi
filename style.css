@@ -11,13 +11,15 @@ html {
 }
 
 .bg {
-  background-image: url("imgs/maxim-berg-unsplash.jpg");
+  background-image: url("imgs/dayEdit.jpg");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-
+.dark-mode {
+  background-image: url("imgs/nightEdit.jpg");
+}
 .pgContainer {
   position: relative;
 }
@@ -63,7 +65,7 @@ h1 {
   font-size: 22px;
   text-align: center;
   z-index: 3;
-  padding-left: 35px;
+  padding-left: 25px;
   padding-right: 15px;
 }
 
@@ -83,7 +85,39 @@ p {
 .petIcon {
   z-index: 2;
   margin-top: -75px;
+  animation-name: iconMove;
+  animation-duration: 4s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
+
+@keyframes iconMove {
+  0% {
+    transform:  translateX(0);
+  }
+
+  50% {
+    transform: translateX(-60px);
+  }
+
+  100% {
+    transform:  translateX(60px);
+  }
+}
+
+/*25% {
+    background-color: yellow;
+    background-color: #8a5ae2;
+    background-color: green;
+
+    0% { transform: translateY(0); }
+    50%  { transform: translateY(-100px); }
+    100% { transform: translateY(0); }
+  }
+
+
+  */
 
 /* The styling below is for various buttons*/
 .container2 {
@@ -123,4 +157,29 @@ button {
   outline: none;
   font-size: 12px;
   box-shadow: 0 0 20px black;
+}
+
+/* Animations */
+
+@keyframes example {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    left: 200px;
+    top: 0px;
+  }
+  50% {
+    left: 200px;
+    top: 200px;
+  }
+  75% {
+    left: 0px;
+    top: 200px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
 }

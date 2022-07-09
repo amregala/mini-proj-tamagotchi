@@ -15,56 +15,54 @@
       href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Press+Start+2P&family=VT323&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+     
+
+    </style>
   </head>
 
-  <div class="bg">
-
-    <div class="pgContainer">
-      
-      <h1>DINOGOTCHI</h1>
-      
-        <div class="squareDisplay">
-          <p class="hola">All my friends are dead :(
-            <br>Something called the big bang wiped them out.
-            Will you be my friend?
-  
-          </p>
-        
-        <div class="topStatusBar">
-        <p class="name" id="userName"></p>
-        <p class="age"></p>
-        </div>
-        
-        <img class="petIcon" src="imgs/babyDino.png" alt="" />
-        
-        <div class="scoreStatusBar">
-          <p class="hungerScore"></p>
-          <p class="sleepyScore"></p>
-          <p class="bordemScore"></p>
-
-        </div>
-      </div>
-
+  <body class="bg">
     
+   
+      <div class="pgContainer">
+        <h1>DINOGOTCHI</h1>
+
+        <div class="squareDisplay">
+          <p class="hola">
+            All my friends are dead :( <br />Something called the big bang wiped
+            them out. Will you be my friend?
+          </p>
+
+          <div class="topStatusBar">
+            <p class="name" id="userName"></p>
+            <p class="age"></p>
+          </div>
+
+          <img class="petIcon" src="imgs/babyDino.png" alt="" />
+
+          <div class="scoreStatusBar">
+            <p class="hungerScore"></p>
+            <p class="sleepyScore"></p>
+            <p class="bordemScore"></p>
+          </div>
+        </div>
 
         <div class="container2">
-        <button class="startBtn">START</button>
-        <button class="lightBtn">LIGHT SWITCH</button>
+          <button class="startBtn">START</button>
+          <button class="lightBtn" onClick="onOff()">LIGHT SWITCH</button>
         </div>
-        
+
         <div class="mainBtn">
-        <button class="fedBtn">FEED</button>
-        <button class="sleepBtn">SLEEP</button>
-        <button class="playBtn">PLAY</button>
-        <!--<button class="lightBtn">TURN OFF LIGHTS</button>-->
-        </div>
+          <button class="fedBtn">FEED</button>
+          <button class="sleepBtn">SLEEP</button>
+          <button class="playBtn">PLAY</button>
         
-       
-  </div>
+        </div>
+      </div>
+    
   
-  </div>
- 
-  
+</body>
     <script src="app.js"></script>
   </body>
 </html>
