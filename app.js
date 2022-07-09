@@ -16,21 +16,18 @@ class Pet {
   }
 }
 
-// const startGame  = {
-//     startGame() {
-//         Pet.name = prompt('What is your Dino\'s name?')
-//         const userID = document.querySelector(`#userName`);
-//         nameID.innerText = (`${Pet.name}`)
-
-// }
-
-let intro = document.querySelector("#userName");
-intro.innerHTML = "Hello!";
-
-let name = prompt("What's your Dino's name?");
-intro.innerHTML = `Dino-${name}`;
-
 //INSTANTIATING A NEW PET
 const dino = new Pet("Dino");
 dino.getName();
 //console.log(dino.getName());
+
+// Name input functionality
+const start = document.querySelector(".startBtn");
+
+function nameInput() {
+  userID = prompt("What is your Dino's name?");
+  const user = document.querySelector("#userName");
+  user.innerHTML = `Dino-${userID}`;
+}
+
+start.addEventListener("click", nameInput);
