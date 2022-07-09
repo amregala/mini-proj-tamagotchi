@@ -29,6 +29,7 @@ class Pet {
   }
 
   ageUp() {
+    this.hunger += 1;
     let ageCount = 0;
     const ageIncrement = document.querySelector(".age");
     setInterval(() => {
@@ -70,6 +71,11 @@ const gameStart = function nameInput() {
   bored.innerHTML = `Boredem ${dino.getBorded()}`;
 
   dino.ageUp();
+  dino.morph();
+
+  //   if (this.age > 2) {
+  //     console.log("morph");
+  //   } else console.log("still baby");
 };
 
 start.addEventListener("click", gameStart);
@@ -78,6 +84,12 @@ start.addEventListener("click", gameStart);
 function onOff() {
   var element = document.body;
   element.classList.toggle("dark-mode");
+
+  // if (this.age > 2) {
+  //const changeIcon = document.querySelector(".petIcon");
+  //  console.log("morph");
+  //changeIcon.innerHTML = src = "imgs/adultDino.png";
+  // }
 }
 
 // seconds += 1;
