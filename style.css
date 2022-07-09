@@ -31,7 +31,7 @@ h1 {
   padding: 8px;
   margin-top: 0;
 }
-/* This styling is for the center display where DINO and the scores appear*/
+/* This styling is for the center square display where character and scores appear*/
 .squareDisplay {
   display: flex;
   flex-direction: column;
@@ -51,10 +51,12 @@ h1 {
 .hola {
   font-size: 14px;
 }
+
 .topStatusBar {
   display: flex;
   margin-top: -75px;
 }
+
 .name,
 .age {
   display: inline-block;
@@ -71,6 +73,7 @@ h1 {
   margin-top: -90px;
   text-align: center;
 }
+
 p {
   display: inline-block;
   margin-left: 5px;
@@ -82,10 +85,7 @@ p {
   margin-top: -75px;
 }
 
-.age {
-  /* margin-top: -75px;*/
-}
-/* The styling below is for all the buttons*/
+/* The styling below is for various buttons*/
 .container2 {
   display: flex;
 }

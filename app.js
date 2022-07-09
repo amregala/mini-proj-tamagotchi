@@ -33,19 +33,16 @@ class Pet {
 }
 
 //INSTANTIATING A NEW PET
-
 const dino = new Pet("Dino");
 dino.getName();
 //console.log(dino.getName());
 
-// Name input functionality
 const start = document.querySelector(".startBtn");
 
 const gameStart = function nameInput() {
   userID = prompt("What is your Dino's name?");
   const user = document.querySelector("#userName");
   user.innerHTML = `Dino-${userID}`;
-  //let newDino = new Pet ${userID};
 
   const clear = document.querySelector(".hola");
   clear.innerHTML = "";
@@ -62,25 +59,4 @@ const gameStart = function nameInput() {
   const bored = document.querySelector(".bordemScore");
   bored.innerHTML = `Boredem ${dino.getBorded()}`;
 
-  //const hungerDisplay = document.querySelector(".hungerScore");
-  //hungerDisplay.addEventListener("click", function (e) {
-  //  hungerInit.innerHTML = `Hunger 0`;
-  //});
-
-  //innerHTML = `Hunger 0`;
-  // hungerInit.innerHTML = `Hunger 0`;
-};
-
-//function sleepinessInit ()
-
-// function bordemInit ()
-
 start.addEventListener("click", gameStart);
-//start.addEventListener("click", hungerDisplay);
-
-//To Save data on everyone who was playing??
-// function addNewDino() {
-//   let name = prompt("What is your Dino's Name?");
-
-//   return new Dino(name);
-// }
