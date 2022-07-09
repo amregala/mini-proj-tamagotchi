@@ -10,19 +10,25 @@ class Pet {
   }
 
   //PET CLASS METHODS
-
-  //setName () - prompts user to name Pet
-  setName() {
-    this.name = prompt('Name your Dinogotchi')
-    const nameID = document.querySelector('.name')
-    nameID.innerText = `Dino-${this.name}`
-  }
-  
   //getName () - returns name
   getName() {
     return this.name;
   }
 }
+
+// const startGame  = {
+//     startGame() {
+//         Pet.name = prompt('What is your Dino\'s name?')
+//         const userID = document.querySelector(`#userName`);
+//         nameID.innerText = (`${Pet.name}`)
+
+// }
+
+let intro = document.querySelector("#userName");
+intro.innerHTML = "Hello!";
+
+let name = prompt("What's your Dino's name?");
+intro.innerHTML = `Dino-${name}`;
 
 //INSTANTIATING A NEW PET
 const dino = new Pet("Dino");

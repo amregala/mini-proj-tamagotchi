@@ -1,5 +1,5 @@
 /*
-font-family: 'Comfortaa', cursive;
+font-family: 'Comfortaa', sans-serif;
 font-family: 'Press Start 2P', monospace;
 font-family: 'VT323', monospace;
 */
@@ -31,7 +31,7 @@ h1 {
   padding: 8px;
   margin-top: 0;
 }
-
+/* This styling is for the center display where DINO and the scores appear*/
 .squareDisplay {
   display: flex;
   flex-direction: column;
@@ -51,12 +51,43 @@ h1 {
   color: #626968;
   position: relative;
   text-align: center;
+  margin-top: 5px;
   z-index: 3;
 }
 
+.scores {
+  font-family: "VT323", monospace;
+  font-size: 14x;
+  color: #626968;
+  display: flex;
+  margin-top: -80px;
+  text-align: center;
+}
+p {
+  margin-left: 5px;
+  padding: 15px;
+}
 .petIcon {
   z-index: 2;
-  margin-top: -40px;
+  margin-top: -80px;
+}
+
+/* The styling below is for all the buttons*/
+.container2 {
+  display: flex;
+}
+.startBtn,
+.lightBtn {
+  margin: auto;
+  margin-top: 50px;
+  background-color: #8a5ae2;
+  color: white;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 14px;
+  height: 35px;
+  width: 100px;
+  border-radius: 50px;
+  border: 1px solid black;
 }
 
 .mainBtn {
@@ -70,30 +101,22 @@ button {
   margin-top: 25px;
   display: inline-block;
   background-color: #f3eb6c;
+  font-family: "Comfortaa", sans-serif;
   height: 80px;
   width: 80px;
   border-radius: 50%;
   border: none;
   /*border: 2px solid black;*/
   outline: none;
-  font-size: 14px;
+  font-size: 12px;
   box-shadow: 0 0 20px black;
 }
 
 footer {
   position: absolute;
-  bottom: 0;
+  bottom: -75px;
   background-color: white;
   text-align: center;
-  padding: 25px;
+  padding: 15px;
   width: 100%;
 }
-
-/*
-.circle {
-  background-color: green;
-  height: 80px;
-  width: 80px;
-  border-radius: 50px;
-}
-*/
