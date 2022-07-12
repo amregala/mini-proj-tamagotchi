@@ -3,79 +3,90 @@ console.log("Tamagotch | Mini Project");
 // PET CLASS
 class Pet {
   constructor(name, age, hunger, sleepiness, bordem) {
-    this.name = name;
-    this.age = 0;
-    this.hunger = 10;
-    this.sleepiness = 0;
-    this.bordem = 0;
+    this._name = name;
+    this._age = 0;
+    this._hunger = 10;
+    this._sleepiness = 0;
+    this._bordem = 0;
   }
-
-  //PET CLASS METHODS
-  //getName () - returns name
-  getName() {
-    return this.name;
+  //pet class getters
+  get name() {
+    return this._name;
   }
-  getHunger() {
-    return this.hunger;
+  get hunger() {
+    return this._hunger;
   }
-  getSleepy() {
-    return this.sleepiness;
+  get sleepy() {
+    return this._sleepiness;
   }
-  getBorded() {
-    return this.bordem;
+  get bordem() {
+    return this._bordem;
   }
-  ageInit() {
-    return this.age;
+  get age() {
+    return this._age;
   }
-
+  //pet class methods
   ageUp() {
-    this.hunger += 1;
     let ageCount = 0;
-    const ageIncrement = document.querySelector(".age");
     setInterval(() => {
       ageCount += 1;
       ageIncrement.innerHTML = `Age: ${ageCount}`;
-    }, 3000);
-    this.age = ageCount;
-    return this.age;
+    }, 2000);
+    this._age = ageCount;
+    return this._age;
   }
-}
+} // end of pet class
+
+// EXTENDING PET CLASS WITH DINOSAUR CLASS
+class Dinosaur extends Pet {
+  constructor(name, age) {
+    super(name, age);
+  }
+  morph() {
+    setTimeout(() => {
+      alert("Your baby Dino is now a toddler!");
+      document.querySelector(".petIcon").src = "imgs/adultDino.png";
+    }, 11000);
+  }
+} // end of dinosaur
 
 //INSTANTIATING A NEW PET
-const dino = new Pet("Dino");
-dino.getName();
-//console.log(dino.getName());
+const dino = new Dinosaur("Dino");
+dino.name;
+console.log(dino.name);
 
-//start of game
+//DOM ELEMENTS
 const start = document.querySelector(".startBtn");
+const user = document.querySelector("#userName");
+const ageIncrement = document.querySelector(".age");
+const petIcon = document.querySelector(".petIcon");
+const age = document.querySelector(".age");
+const hunger = document.querySelector(".hungerScore");
+const sleepy = document.querySelector(".sleepyScore");
+const bored = document.querySelector(".bordemScore");
 
+//start of game --> prompts for name and sets initial display screen
 const gameStart = function nameInput() {
   console.log("game started");
   userID = prompt("What is your Dino's name?");
-  const user = document.querySelector("#userName");
-  user.innerHTML = `Dino-${userID}`;
-
+  if (typeof userID === "string") {
+    user.innerHTML = ` Dino-${userID}`;
+  } else {
+    prompt2 = prompt("Please will you give me a name?");
+    if (typeof prompt2 === "string") {
+      user.innerHTML = `Dino-${prompt2}`;
+    } else {
+      user.innerHTML = `Dino-John Doe`;
+    }
+  }
   const clear = document.querySelector(".hola");
   clear.innerHTML = "";
-
-  const age = document.querySelector(".age");
-  age.innerHTML = `Age ${dino.ageInit()}`;
-
-  const hunger = document.querySelector(".hungerScore");
-  hunger.innerHTML = `Hunger ${dino.getHunger()}`;
-
-  const sleepy = document.querySelector(".sleepyScore");
-  sleepy.innerHTML = `Sleepiness ${dino.getSleepy()}`;
-
-  const bored = document.querySelector(".bordemScore");
-  bored.innerHTML = `Boredem ${dino.getBorded()}`;
-
-  dino.ageUp();
-  dino.morph();
-
-  //   if (this.age > 2) {
-  //     console.log("morph");
-  //   } else console.log("still baby");
+  age.innerHTML = `Age: ${dino.age}`;
+  hunger.innerHTML = `Hunger ${dino.hunger}`;
+  sleepy.innerHTML = `Sleepiness ${dino.sleepy}`;
+  bored.innerHTML = `Boredem ${dino.bordem}`;
+  dino.ageUp(); //starting the counter for age
+  dino.morph(); // morphs the dino image from baby to adult
 };
 
 start.addEventListener("click", gameStart);

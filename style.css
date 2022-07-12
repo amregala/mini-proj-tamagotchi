@@ -62,11 +62,12 @@ h1 {
 .name,
 .age {
   display: inline-block;
-  font-size: 22px;
+  font-size: 18px;
   text-align: center;
   z-index: 3;
-  padding-left: 25px;
-  padding-right: 15px;
+  margin-left: 20px;
+  padding-left: 15px;
+  padding-right: 5px;
 }
 
 .scoreStatusBar {
