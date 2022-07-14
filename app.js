@@ -25,6 +25,10 @@ class Pet {
   get age() {
     return this._age;
   }
+
+  set hunger(num) {
+    return this._hunger;
+  }
   //pet class methods
   ageUp() {
     let ageCount = 0;
@@ -35,7 +39,17 @@ class Pet {
     this._age = ageCount;
     return this._age;
   }
-} // end of pet class
+
+  imHungry() {
+    this._hunger;
+    setInterval(() => {
+      this._hunger += 1;
+      hunger.innerHTML = `Hunger ${this._hunger}`;
+    }, 8000);
+    return this._hunger;
+  }
+}
+// end of pet class
 
 // EXTENDING PET CLASS WITH DINOSAUR CLASS
 class Dinosaur extends Pet {
@@ -48,7 +62,14 @@ class Dinosaur extends Pet {
       document.querySelector(".petIcon").src = "imgs/adultDino.png";
     }, 11000);
   }
-} // end of dinosaur
+
+  eat() {
+    console.log("eat method was clicked");
+    console.log((dino.hunger -= 3));
+  }
+}
+
+// end of dinosaur
 
 //INSTANTIATING A NEW PET
 const dino = new Dinosaur("Dino");
@@ -61,35 +82,43 @@ const user = document.querySelector("#userName");
 const ageIncrement = document.querySelector(".age");
 const petIcon = document.querySelector(".petIcon");
 const age = document.querySelector(".age");
-const hunger = document.querySelector(".hungerScore");
+let hunger = document.querySelector(".hungerScore");
 const sleepy = document.querySelector(".sleepyScore");
 const bored = document.querySelector(".bordemScore");
+const feed = document.querySelector(".feedBtn");
 
 //start of game --> prompts for name and sets initial display screen
-const gameStart = function nameInput() {
+function gameStart() {
   console.log("game started");
   userID = prompt("What is your Dino's name?");
   if (typeof userID === "string") {
     user.innerHTML = ` Dino-${userID}`;
+    start.removeEventListener("click", gameStart);
   } else {
     prompt2 = prompt("Please will you give me a name?");
     if (typeof prompt2 === "string") {
       user.innerHTML = `Dino-${prompt2}`;
+      start.removeEventListener("click", gameStart);
     } else {
       user.innerHTML = `Dino-John Doe`;
+      start.removeEventListener("click", gameStart);
     }
   }
+  // clears message on display
   const clear = document.querySelector(".hola");
   clear.innerHTML = "";
+  //updates to status bar display
   age.innerHTML = `Age: ${dino.age}`;
   hunger.innerHTML = `Hunger ${dino.hunger}`;
   sleepy.innerHTML = `Sleepiness ${dino.sleepy}`;
   bored.innerHTML = `Boredem ${dino.bordem}`;
   dino.ageUp(); //starting the counter for age
   dino.morph(); // morphs the dino image from baby to adult
-};
+  dino.imHungry();
+}
 
 start.addEventListener("click", gameStart);
+feed.addEventListener("click", dino.eat);
 
 //lightswitch
 function onOff() {
