@@ -144,7 +144,11 @@ p {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-
+/*
+.actionBtn {
+  pointer-events: none;
+}
+*/
 button {
   margin-top: 25px;
   display: inline-block;

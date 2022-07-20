@@ -1,15 +1,17 @@
 console.log("Tamagotch | Mini Project");
 
 //DOM ELEMENTS
-const start = document.querySelector(".startBtn");
-const user = document.querySelector("#userName");
-const ageIncrement = document.querySelector(".age");
 const petIcon = document.querySelector(".petIcon");
+const user = document.querySelector("#userName");
 const age = document.querySelector(".age");
 let hunger = document.querySelector(".hungerScore");
 const sleepy = document.querySelector(".sleepyScore");
 const bored = document.querySelector(".bordemScore");
+const start = document.querySelector(".startBtn");
 const feed = document.querySelector("#feedBtn");
+const sleep = document.querySelector("#sleepBtn");
+const play = document.querySelector("#playBtn");
+let actionBtn = document.querySelectorAll(".actBtn");
 
 // PET CLASS
 class Pet {
@@ -18,7 +20,7 @@ class Pet {
     this._age = 0;
     this._hunger = 9;
     this._sleepiness = 5;
-    this._bordem = 0;
+    this._bordem = 4;
   }
   //pet class getters
   get name() {
@@ -39,22 +41,19 @@ class Pet {
 
   //pet class methods
   ageUp() {
-    let ageCount = this._age;
     setInterval(() => {
-      ageCount += 1;
-      ageIncrement.innerHTML = `Age: ${ageCount}`;
+      this._age += 1;
+      age.textContent = `Age: ${this._age}`;
     }, 2000);
-    this._age = ageCount;
     return this._age;
   }
 
   imHungry() {
-    if (this._hunger > 10) {
-      alert("please feed me");
-    }
+    // if (this._hunger > 10) {
+    //   alert("please feed me");
+    // }
     setInterval(() => {
       this._hunger += 1;
-
       hunger.textContent = `Hunger ${this._hunger}`;
       return this._hunger;
     }, 6000);
@@ -64,6 +63,7 @@ class Pet {
     setInterval(() => {
       this._sleepiness += 1;
       sleepy.textContent = `Sleepiness ${this._sleepiness}`;
+      return this._sleepiness;
     }, 4000);
   }
 
@@ -71,6 +71,7 @@ class Pet {
     setInterval(() => {
       this._bordem += 2;
       bored.textContent = `Bordem ${this._bordem}`;
+      return this._bordem;
     }, 4000);
   }
 }
@@ -98,6 +99,7 @@ console.log(dino.name);
 //start of game --> prompts for name and sets initial display screen
 function gameStart() {
   console.log("game started");
+
   userID = prompt("What is your Dino's name?");
   if (typeof userID === "string") {
     user.innerHTML = ` Dino-${userID}`;
@@ -112,6 +114,7 @@ function gameStart() {
       start.removeEventListener("click", gameStart);
     }
   }
+
   // clears message that initially appears on display
   const clear = document.querySelector(".messages");
   clear.textContent = "";
@@ -121,11 +124,11 @@ function gameStart() {
   sleepy.textContent = `Sleepiness ${dino.sleepy}`;
   bored.textContent = `Boredem ${dino.bordem}`;
 
-  dino.ageUp(); //starting the counter for age
+  dino.ageUp(); //starting the age counter
   dino.morph(); // morphs the dino image from baby to adult
-  dino.imHungry(); // starts the hunger increment for the dino object
-  dino.imSleepy(); // starts the sleepy increment for dino object
-  dino.imBored(); // starts the boredem increment for dino object
+  dino.imHungry(); // starts the hunger increment
+  dino.imSleepy(); // starts the sleepy increment
+  dino.imBored(); // starts the boredem increment
 }
 
 // if (=== 10) {
@@ -133,20 +136,26 @@ function gameStart() {
 //alert("You died of old age");
 //}
 
-const eat = () => {
+const eating = () => {
   // console.log("eat method was clicked");
   hunger.textContent = `Hunger ${(dino._hunger -= 2)}`;
   return dino._hunger;
 };
 
-const sleep = () => {};
+const sleeping = () => {
+  sleepy.textContent = `Sleepiness ${(dino._sleepiness -= 2)}`;
+  return dino._sleepiness;
+};
 
-const play = () => {};
+const playing = () => {
+  bored.textContent = `Bordem ${(dino._bordem -= 1)}`;
+  return dino._bordem;
+};
 
 start.addEventListener("click", gameStart);
-feed.addEventListener("click", eat);
-sleepy.addEventListener("click", sleep);
-bored.addEventListener("click", play);
+feed.addEventListener("click", eating);
+sleep.addEventListener("click", sleeping);
+play.addEventListener("click", playing);
 
 //lightswitch
 function onOff() {
