@@ -1,17 +1,31 @@
 console.log("Tamagotch | Mini Project");
 
+//DOM ELEMENTS
+const start = document.querySelector(".startBtn");
+const user = document.querySelector("#userName");
+const ageIncrement = document.querySelector(".age");
+const petIcon = document.querySelector(".petIcon");
+const age = document.querySelector(".age");
+let hunger = document.querySelector(".hungerScore");
+const sleepy = document.querySelector(".sleepyScore");
+const bored = document.querySelector(".bordemScore");
+const feed = document.querySelector("#feedBtn");
+
 // PET CLASS
 class Pet {
   constructor(name, age, hunger, sleepiness, bordem) {
     this._name = name;
     this._age = 0;
-    this._hunger = 10;
-    this._sleepiness = 0;
+    this._hunger = 9;
+    this._sleepiness = 5;
     this._bordem = 0;
   }
   //pet class getters
   get name() {
     return this._name;
+  }
+  get age() {
+    return this._age;
   }
   get hunger() {
     return this._hunger;
@@ -22,16 +36,10 @@ class Pet {
   get bordem() {
     return this._bordem;
   }
-  get age() {
-    return this._age;
-  }
 
-  set hunger(num) {
-    return this._hunger;
-  }
   //pet class methods
   ageUp() {
-    let ageCount = 0;
+    let ageCount = this._age;
     setInterval(() => {
       ageCount += 1;
       ageIncrement.innerHTML = `Age: ${ageCount}`;
@@ -41,20 +49,37 @@ class Pet {
   }
 
   imHungry() {
-    this._hunger;
+    if (this._hunger > 10) {
+      alert("please feed me");
+    }
     setInterval(() => {
       this._hunger += 1;
-      hunger.innerHTML = `Hunger ${this._hunger}`;
-    }, 8000);
-    return this._hunger;
+
+      hunger.textContent = `Hunger ${this._hunger}`;
+      return this._hunger;
+    }, 6000);
+  }
+
+  imSleepy() {
+    setInterval(() => {
+      this._sleepiness += 1;
+      sleepy.textContent = `Sleepiness ${this._sleepiness}`;
+    }, 4000);
+  }
+
+  imBored() {
+    setInterval(() => {
+      this._bordem += 2;
+      bored.textContent = `Bordem ${this._bordem}`;
+    }, 4000);
   }
 }
 // end of pet class
 
 // EXTENDING PET CLASS WITH DINOSAUR CLASS
-class Dinosaur extends Pet {
-  constructor(name, age) {
-    super(name, age);
+class DinosaurMorph extends Pet {
+  constructor(name, age, hunger, sleepiness, bordem) {
+    super(name, age, hunger, sleepiness, bordem);
   }
   morph() {
     setTimeout(() => {
@@ -62,30 +87,13 @@ class Dinosaur extends Pet {
       document.querySelector(".petIcon").src = "imgs/adultDino.png";
     }, 11000);
   }
-
-  eat() {
-    console.log("eat method was clicked");
-    console.log((dino.hunger -= 3));
-  }
 }
-
-// end of dinosaur
+// end of dinosaur class
 
 //INSTANTIATING A NEW PET
-const dino = new Dinosaur("Dino");
+const dino = new DinosaurMorph("Dino");
 dino.name;
 console.log(dino.name);
-
-//DOM ELEMENTS
-const start = document.querySelector(".startBtn");
-const user = document.querySelector("#userName");
-const ageIncrement = document.querySelector(".age");
-const petIcon = document.querySelector(".petIcon");
-const age = document.querySelector(".age");
-let hunger = document.querySelector(".hungerScore");
-const sleepy = document.querySelector(".sleepyScore");
-const bored = document.querySelector(".bordemScore");
-const feed = document.querySelector(".feedBtn");
 
 //start of game --> prompts for name and sets initial display screen
 function gameStart() {
@@ -104,21 +112,41 @@ function gameStart() {
       start.removeEventListener("click", gameStart);
     }
   }
-  // clears message on display
-  const clear = document.querySelector(".hola");
-  clear.innerHTML = "";
-  //updates to status bar display
-  age.innerHTML = `Age: ${dino.age}`;
-  hunger.innerHTML = `Hunger ${dino.hunger}`;
-  sleepy.innerHTML = `Sleepiness ${dino.sleepy}`;
-  bored.innerHTML = `Boredem ${dino.bordem}`;
+  // clears message that initially appears on display
+  const clear = document.querySelector(".messages");
+  clear.textContent = "";
+  // score status bar displays
+  age.textContent = `Age: ${dino.age}`;
+  hunger.textContent = `Hunger ${dino.hunger}`;
+  sleepy.textContent = `Sleepiness ${dino.sleepy}`;
+  bored.textContent = `Boredem ${dino.bordem}`;
+
   dino.ageUp(); //starting the counter for age
   dino.morph(); // morphs the dino image from baby to adult
-  dino.imHungry();
+  dino.imHungry(); // starts the hunger increment for the dino object
+  dino.imSleepy(); // starts the sleepy increment for dino object
+  dino.imBored(); // starts the boredem increment for dino object
 }
 
+// if (=== 10) {
+//   console.log("an alert should work here");
+//alert("You died of old age");
+//}
+
+const eat = () => {
+  // console.log("eat method was clicked");
+  hunger.textContent = `Hunger ${(dino._hunger -= 2)}`;
+  return dino._hunger;
+};
+
+const sleep = () => {};
+
+const play = () => {};
+
 start.addEventListener("click", gameStart);
-feed.addEventListener("click", dino.eat);
+feed.addEventListener("click", eat);
+sleepy.addEventListener("click", sleep);
+bored.addEventListener("click", play);
 
 //lightswitch
 function onOff() {

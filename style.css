@@ -71,10 +71,10 @@ h1 {
 }
 
 .scoreStatusBar {
-  font-size: 14px;
   display: flex;
-  margin-top: -90px;
-  text-align: center;
+  font-size: 14px;
+  margin-top: -32px;
+  text-align: justify;
 }
 
 p {
