@@ -139,6 +139,9 @@ function gameStart() {
 const eating = () => {
   // console.log("eat method was clicked");
   hunger.textContent = `Hunger ${(dino._hunger -= 2)}`;
+  if (hunger.textContent === 0) {
+    alert("Just testing");
+  }
   return dino._hunger;
 };
 
